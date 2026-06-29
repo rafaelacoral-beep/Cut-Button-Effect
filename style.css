@@ -1,0 +1,95 @@
+/* ESTILOS GLOBAIS DO CORPO DA PÁGINA */
+body{
+    margin: 0;                   /* Remove margens padrão do navegador */
+    display: flex;               /* Ativa o modelo Flexbox para centralização */
+    align-items: center;         /* Centraliza verticalmente o conteúdo */
+    justify-content: center;    /* Centraliza horizontalmente o conteúdo */
+    height: 100vh;               /* Define altura como 100% da viewport (tela inteira) */
+    font-family: sans-serif;     /* Define fonte padrão sem serifa */
+    background-color: #272727;   /* Cor de fundo cinza escuro */
+}
+
+/* ESTILOS DO BOTÃO PRINCIPAL */
+button{
+    background-color: transparent; /* Fundo transparente para mostrar os efeitos */
+    border: none;                  /* Remove borda padrão do botão */
+    position: relative;            /* Permite posicionar elementos filhos absolutamente */
+    width: 400px;                  /* Largura fixa do botão */
+    height: 120px;                 /* Altura fixa do botão */
+    text-transform: uppercase;     /* Converte texto para maiúsculas */
+    line-height: 120px;            /* Altura da linha igual à altura do botão (centraliza verticalmente) */
+    text-align: center;            /* Centraliza o texto horizontalmente */
+    color: white;                  /* Cor do texto branca */
+    font-size: 45px;               /* Tamanho da fonte */
+    letter-spacing: 14px;          /* Espaçamento entre letras */
+    overflow: hidden;              /* Esconde qualquer conteúdo que ultrapasse os limites */
+}
+
+/* PSEUDO-ELEMENTO BEFORE DO BOTÃO (LINHA SUPERIOR) */
+button::before{
+    content: "";                  /* Necessário para pseudo-elementos existirem */
+    position: absolute;           /* Posicionamento absoluto relativo ao botão */
+    top: 0;                       /* Alinhado no topo */
+    left: -100%;                  /* Inicia fora da tela à esquerda (100% negativo) */
+    width: 100%;                  /* Largura igual ao botão */
+    height: 4px;                  /* Altura da linha (4 pixels) */
+    background-color: white;      /* Cor branca */
+    transition: all 0.5s;         /* Animação suave de 0.5 segundos para todas as propriedades */
+}
+
+/* EFEITO HOVER NO BEFORE (LINHA SUPERIOR ENTRA) */
+button:hover::before{
+    left: 0;                      /* Move a linha para a posição inicial visível */
+}
+
+/* PSEUDO-ELEMENTO AFTER DO BOTÃO (LINHA INFERIOR) */
+button::after{
+    content: "";                  /* Necessário para existência do pseudo-elemento */
+    position: absolute;           /* Posicionamento absoluto */
+    bottom: 0;                    /* Alinhado na parte inferior */
+    right: -100%;                 /* Inicia fora da tela à direita */
+    width: 100%;                  /* Largura total */
+    height: 4px;                  /* Altura da linha */
+    background-color: white;      /* Cor branca */
+    transition: all 0.5s;         /* Animação suave */
+}
+
+/* EFEITO HOVER NO AFTER (LINHA INFERIOR ENTRA) */
+button:hover::after{
+    right: 0;                     /* Move linha da direita para posição visível */
+}
+
+/* PSEUDO-ELEMENTO BEFORE DO SPAN (LINHA VERTICAL DIREITA) */
+/* OBS: O span deve estar dentro do botão para este efeito funcionar */
+span:before{
+    content: "";                  /* Conteúdo vazio obrigatório */
+    position: absolute;           /* Posicionamento absoluto */
+    top: -100%;                   /* Inicia fora da tela por cima */
+    right: 0;                     /* Alinhado à direita */
+    width: 4px;                   /* Largura da linha (vertical) */
+    height: 100%;                 /* Altura total do botão */
+    background-color: white;      /* Cor branca */
+    transition: all 0.5s;         /* Animação suave */
+}
+
+/* EFEITO HOVER NO BEFORE DO SPAN (LINHA VERTICAL DIREITA ENTRA) */
+button:hover span:before{
+    top: 0;                       /* Move de cima para posição visível */
+}
+
+/* PSEUDO-ELEMENTO AFTER DO SPAN (LINHA VERTICAL ESQUERDA) */
+span:after{
+    content: "";                  /* Conteúdo vazio */
+    position: absolute;           /* Posicionamento absoluto */
+    bottom: -100%;                /* Inicia fora da tela por baixo */
+    left: 0;                      /* Alinhado à esquerda */
+    width: 4px;                   /* Largura da linha */
+    height: 100%;                 /* Altura total */
+    background-color: white;      /* Cor branca */
+    transition: all 0.5s;         /* Animação suave */
+}
+
+/* EFEITO HOVER NO AFTER DO SPAN */
+button:hover span:after{
+    bottom: 0;
+}
